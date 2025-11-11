@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KessaVaez</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 🌿 Sticky Glassmorphic Header -->
+  <header>
+    <h1>KessaVaez</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#activities">Activities</a>
+    </nav>
+  </header>
+
+  <!-- 🟩 Hero Section -->
+  <section class="hero">
+    <img src="KessaVaez_Logo.png" alt="KessaVaez Logo" class="logo" />
+  </section>
+
+  <!-- 🟫 Card Section -->
+  <section class="sections">
+    <div class="card" onclick="toggleSection('about')">
+      <h2>About Me</h2>
+      <p>Learn more about who I am, my values, and what drives me forward.</p>
+    </div>
+
+    <div class="card" onclick="toggleSection('activities')">
+      <h2>Activities</h2>
+      <p>Explore my projects, work, and creative journey.</p>
+    </div>
+  </section>
+
+  <!-- 🟨 Expandable Sections -->
+  <div id="about" class="expandable">
+    <h3>About Me</h3>
+    <p>
+      I’m someone who values stability, loyalty, and honesty, and I put effort into anything I truly care about. 
+      I enjoy both hard work and life’s simple pleasures — whether it’s being close to nature, appreciating beauty, 
+      or spending time with people I trust.
+    </p>
+    <p>
+      I may be strong-willed, but that determination helps me stay grounded and reach my goals. 
+      Every challenge I take on shapes me into a better version of myself.
+    </p>
+  </div>
+
+  <div id="activities" class="expandable">
+  <h3>Activities</h3>
+  <p>
+    Here are some of the things I’ve been involved in recently — from creative projects to personal milestones.
+  </p>
+  <ul>
+    <!-- New Projects -->
+    <li> <a href="https://kessavaez.github.io/mt-mayon/" target="_blank">MT Mayon Project</a></li>
+    <li> <a href="https://kessavaez.github.io/project_vaez/" target="_blank">Project Vaez</a></li>
+  </ul>
+</div>
+
+
+  <!-- 🧩 JavaScript -->
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      const allSections = document.querySelectorAll('.expandable');
+
+      allSections.forEach(s => {
+        if (s !== section) s.classList.remove('active');
+      });
+
+      section.classList.toggle('active');
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>

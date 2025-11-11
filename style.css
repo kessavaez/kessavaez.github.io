@@ -1,0 +1,181 @@
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #F5E9D3;
+  color: #383838;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* 🌿 Glassmorphic Sticky Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(222, 213, 193, 0.15);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 16px 16px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #131B04;
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 1.2rem;
+  text-decoration: none;
+  color: #131B04;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+  color: #D7B86F;
+  text-shadow: 0 0 8px rgba(215, 184, 111, 0.5);
+}
+
+/* 🟩 Hero Section */
+.hero {
+  background-color: #27371D;
+  height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .logo {
+  width: 800px;
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.hero .logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+
+/* 🟫 Cards Section */
+.sections {
+  background-color: #F5E9D3;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #fffbea;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  text-align: center;
+  width: 300px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: #383838;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+  color: #27371D;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #4f4f4f;
+}
+
+/* 🟨 Expandable Sections */
+.expandable {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  background-color: #fffbea;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.6s ease;
+  padding: 0 2rem;
+}
+
+.expandable.active {
+  max-height: 600px;
+  opacity: 1;
+  padding: 2rem;
+}
+
+.expandable h3 {
+  color: #27371D;
+  margin-bottom: 1rem;
+}
+
+.expandable p {
+  font-size: 1rem;
+  color: #4f4f4f;
+  margin-bottom: 1rem;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .sections {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+/* 🌿 Activities Links Styling */
+.expandable ul li a {
+  color: #27371D; /* dark green text to match your palette */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.expandable ul li a:hover {
+  color: #D7B86F; /* subtle yellow highlight on hover */
+  text-shadow: 0 0 6px rgba(215, 184, 111, 0.5);
+}
