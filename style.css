@@ -1,4 +1,4 @@
-/* ===== Global Styles ===== */
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -8,7 +8,6 @@ body {
   overflow-x: hidden;
 }
 
-/* 🌿 Glassmorphic Sticky Header */
 header {
   position: sticky;
   top: 0;
@@ -46,7 +45,7 @@ nav a:hover {
   text-shadow: 0 0 8px rgba(215, 184, 111, 0.5);
 }
 
-/* 🟩 Hero Section */
+
 .hero {
   background-color: #27371D;
   height: 900px;
@@ -69,7 +68,7 @@ nav a:hover {
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
 }
 
-/* 🟫 Cards Section */
+
 .sections {
   background-color: #F5E9D3;
   padding: 4rem 2rem;
@@ -107,7 +106,7 @@ nav a:hover {
   color: #4f4f4f;
 }
 
-/* 🟨 Expandable Sections */
+
 .expandable {
   max-width: 800px;
   margin: 0 auto 2rem;
@@ -138,7 +137,7 @@ nav a:hover {
   margin-bottom: 1rem;
 }
 
-/* 📱 Responsive */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -167,15 +166,15 @@ nav a:hover {
   }
 }
 
-/* 🌿 Activities Links Styling */
+
 .expandable ul li a {
-  color: #27371D; /* dark green text to match your palette */
+  color: #27371D; 
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 .expandable ul li a:hover {
-  color: #D7B86F; /* subtle yellow highlight on hover */
+  color: #D7B86F; 
   text-shadow: 0 0 6px rgba(215, 184, 111, 0.5);
 }
