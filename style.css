@@ -1,4 +1,12 @@
-/* ===== GLOBAL STYLES ===== */
+body {
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -17,45 +25,9 @@ a {
   color: inherit;
 }
 
-/* ===== HEADER ===== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(222, 213, 193, 0.15);
-  backdrop-filter: blur(12px) saturate(160%);
-  -webkit-backdrop-filter: blur(12px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0 0 16px 16px;
-}
-
-header h1 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #131B04;
-  letter-spacing: 1px;
-}
-
-nav a {
-  margin-left: 1.2rem;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.3s, text-shadow 0.3s;
-}
-
-nav a:hover {
-  color: #D7B86F;
-  text-shadow: 0 0 8px rgba(215, 184, 111, 0.5);
-}
-
-/* ===== HERO SECTION ===== */
 .hero {
   background-color: #27371D;
-  height: 900px;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,161 +35,143 @@ nav a:hover {
 
 .hero .logo {
   width: 800px;
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
-  transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
+  max-width: 90%;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.4));
 }
 
-.hero .logo:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
-}
-
-/* ===== SECTION CARDS ===== */
+/*SECTION CARDS*/
 .sections {
-  background-color: #F5E9D3;
-  padding: 4rem 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  padding: 3rem 1rem;
 }
 
-.card {
+.section-card {
   background-color: #fffbea;
   border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   padding: 2rem;
   text-align: center;
-  width: 300px;
-  transition: all 0.3s ease;
   cursor: pointer;
-  color: #383838;
+  transition: all .3s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.1);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+.section-card:hover {
+  transform: translateY(-6px);
 }
 
-.card h2 {
-  color: #27371D;
-  margin-bottom: 0.5rem;
+.section-card.active {
+  border: 2px solid #D7B86F;
+  box-shadow: 0 14px 32px rgba(215,184,111,.45);
 }
 
-.card p {
-  font-size: 0.95rem;
-  color: #4f4f4f;
+.card-icon {
+  display: inline-block;
+  font-size: 1.4rem;
+  margin-top: .6rem;
+  transition: transform .3s ease;
 }
 
-/* ===== EXPANDABLE SECTIONS ===== */
+.section-card.active .card-icon {
+  transform: rotate(180deg);
+}
+
 .expandable {
   max-width: 900px;
-  margin: 30px auto;
-  background-color: #fffbea;
+  margin: 0 auto;
+  background: #fffbea;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
 
+  overflow: hidden;
   max-height: 0;
   opacity: 0;
+  transform: translateY(-12px);
   padding: 0 2rem;
-  transition: all 0.6s ease;
+
+  transition:
+    max-height .9s ease,
+    opacity .4s ease,
+    transform .4s ease;
 }
 
 .expandable.active {
-  max-height: 1000px;
+  max-height: 3500px;
   opacity: 1;
-  padding: 2rem;
+  transform: translateY(0);
+  padding: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-.expandable h3 {
-  color: #27371D;
-  margin-bottom: 1rem;
-}
-
-.expandable p {
-  font-size: 1rem;
-  color: #4f4f4f;
-  margin-bottom: 1rem;
-}
-
-/* ===== ABOUT SECTION ===== */
+/*ABOUT*/
 .about-content {
   display: flex;
   gap: 25px;
-  align-items: flex-start;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .about-img {
   width: 220px;
-  height: auto;
-  object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .about-text {
   flex: 1;
 }
 
-/* ===== ACTIVITIES GRID ===== */
+/*ACTIVITIES*/
 .activities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
-/* ===== ACTIVITY CARD ===== */
 .activity-card {
-  background-color: #fff;
+  background: #fff;
   border-radius: 14px;
   overflow: hidden;
-  text-decoration: none;
-  color: #27371D;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.1);
+  transition: transform .3s ease;
 }
 
 .activity-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .activity-card img {
   width: 100%;
-  height: 140px;
+  height: 160px;
   object-fit: cover;
 }
 
 .activity-card h4 {
-  padding: 0.8rem;
-  font-size: 0.95rem;
+  padding: .8rem;
   text-align: center;
 }
 
-/* ===== LINKS INSIDE EXPANDABLE ===== */
-.expandable ul li a {
+.back-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #D7B86F;
   color: #27371D;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s, text-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 999;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
 }
 
-.expandable ul li a:hover {
-  color: #D7B86F;
-  text-shadow: 0 0 6px rgba(215, 184, 111, 0.5);
-}
-
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  .hero {
+    height: 65vh;
+  }
+
   .about-content {
     flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 

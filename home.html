@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KessaVaez | Home</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="#">KessaVaez</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <img src="images/KessaVaez_Logo.png" alt="KessaVaez Logo" class="logo" />
+  </section>
+
+  <section class="sections container">
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-12 col-md-5 col-lg-4">
+        <div class="section-card" data-target="about">
+          <h2>About Me</h2>
+          <p>Learn more about who I am and what drives me.</p>
+          <span class="card-icon">⌄</span>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-5 col-lg-4">
+        <div class="section-card" data-target="activities">
+          <h2>Activities</h2>
+          <p>Explore my projects and creative work.</p>
+          <span class="card-icon">⌄</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div id="about" class="expandable">
+    <h3>About Me</h3>
+    <div class="about-content">
+      <img src="images/displayphoto.jpeg" alt="My photo" class="about-img">
+      <div class="about-text">
+         <p>
+        I’m someone who values stability, loyalty, and honesty, and I put effort into anything I truly care about.
+        I enjoy both hard work and life’s simple pleasures — whether it’s being close to nature, appreciating beauty,
+        or spending time with people I trust.
+      </p>
+      <p>
+        I may be strong-willed, but that determination helps me stay grounded and reach my goals.
+        Every challenge I take on shapes me into a better version of myself.
+      </p>
+      <p class="text-end">- Kessa Narvaez</p>
+    </div>
+  </div>
+</div>
+
+  <!-- ACTIVITIES -->
+  <div id="activities" class="expandable">
+    <h3>Activities</h3>
+    <div class="activities-grid">
+      <a href="https://kessavaez.github.io/mt-mayon/" target="_blank" class="activity-card">
+        <img src="images/Mtmayon.png">
+        <h4>Mt.Mayon</h4>
+      </a>
+      <a href="https://kessavaez.github.io/project_vaez/" target="_blank" class="activity-card">
+        <img src="images/Kessabeats.png">
+        <h4>KessaBeats</h4>
+      </a>
+      <a href="https://kessavaez.github.io/simple-gallery/" target="_blank" class="activity-card">
+        <img src="images/Succulentsgallery.png">
+        <h4>SucculentsGallery</h4>
+      </a>
+      <a href="https://kessavaez.github.io/plantexpress-api/" target="_blank" class="activity-card">
+        <img src="images/Plantexpress.png">
+        <h4>PlantExpress</h4>
+      </a>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">←</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  const cards = document.querySelectorAll('.section-card');
+  const sections = document.querySelectorAll('.expandable');
+
+  function closeAll() {
+    sections.forEach(section => section.classList.remove('active'));
+    cards.forEach(card => card.classList.remove('active'));
+  }
+
+  function smoothScrollTo(element) {
+    const offset = 90; // navbar space
+    const y =
+      element.getBoundingClientRect().top +
+      window.pageYOffset -
+      offset;
+
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth'
+    });
+  }
+
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+      e.stopPropagation();
+
+      const target = document.getElementById(card.dataset.target);
+      const isOpen = target.classList.contains('active');
+
+      closeAll();
+
+      if (!isOpen) {
+        card.classList.add('active');
+        target.classList.add('active');
+
+        setTimeout(() => smoothScrollTo(target), 150);
+      }
+    });
+  });
+
+  document.addEventListener('click', closeAll);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+</script>
